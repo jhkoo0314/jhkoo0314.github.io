@@ -200,10 +200,10 @@ function loadGiscus(filename) {
     script.async = true;
 
     // Giscus 설정
-    script.setAttribute('data-repo', 'jhkoo0314/jhkoo0314.github.io');
-    script.setAttribute('data-repo-id', 'R_kgDOMtHcNg'); // 실제 repo-id
+    script.setAttribute('data-repo', 'seungwonme/seungwonme.github.io');
+    script.setAttribute('data-repo-id', 'R_kgDOQKjKYA'); // 실제 repo-id
     script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'DIC_kwDOMtHcNs4CixHf'); // 실제 category-id
+    script.setAttribute('data-category-id', 'DIC_kwDOQKjKYM4CxKN2'); // 실제 category-id
     script.setAttribute('data-mapping', 'pathname');
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
