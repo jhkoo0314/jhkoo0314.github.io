@@ -33,8 +33,9 @@ async function loadPost(filename) {
     try {
         console.log(`📖 게시글 로드 중: ${filename}`);
 
-        // 마크다운 파일 로드
-        const response = await fetch(`./pages/${filename}`);
+        // 마크다운 파일 로드 (절대 경로 사용)
+        const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        const response = await fetch(`${baseUrl}pages/${filename}`);
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }

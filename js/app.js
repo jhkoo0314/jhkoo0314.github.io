@@ -60,7 +60,9 @@ async function loadPosts() {
     try {
         console.log('📄 게시글 데이터 로드 중...');
 
-        const response = await fetch('./posts.json');
+        // 절대 경로 사용 (배포 환경 고려)
+        const baseUrl = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        const response = await fetch(baseUrl + 'posts.json');
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
