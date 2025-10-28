@@ -199,11 +199,11 @@ function loadGiscus(filename) {
     script.src = 'https://giscus.app/client.js';
     script.async = true;
 
-    // Giscus 설정 (실제 값으로 변경 필요)
-    script.setAttribute('data-repo', 'your-github-username/your-github-username.github.io');
-    script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // 실제 repo-id로 변경
+    // Giscus 설정
+    script.setAttribute('data-repo', 'jhkoo0314/jhkoo0314.github.io');
+    script.setAttribute('data-repo-id', 'R_kgDOMtHcNg'); // 실제 repo-id
     script.setAttribute('data-category', 'General');
-    script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // 실제 category-id로 변경
+    script.setAttribute('data-category-id', 'DIC_kwDOMtHcNs4CixHf'); // 실제 category-id
     script.setAttribute('data-mapping', 'pathname');
     script.setAttribute('data-strict', '0');
     script.setAttribute('data-reactions-enabled', '1');
