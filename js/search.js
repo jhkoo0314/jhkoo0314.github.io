@@ -7,20 +7,20 @@
 let searchTimeout = null;
 const SEARCH_DELAY = 300; // 검색 딜레이 (ms)
 
-// DOM 요소들
-let searchInput, searchClear;
+// 로컬 변수들 (전역 충돌 방지)
+let localSearchInput, localSearchClear;
 
 // 검색 기능 초기화
 document.addEventListener('DOMContentLoaded', function() {
-    searchInput = document.getElementById('search-input');
-    searchClear = document.getElementById('search-clear');
+    localSearchInput = document.getElementById('search-input');
+    localSearchClear = document.getElementById('search-clear');
 
-    if (searchInput) {
+    if (localSearchInput) {
         // 디바운스된 검색 이벤트
-        searchInput.addEventListener('input', debounceSearch);
+        localSearchInput.addEventListener('input', debounceSearch);
 
         // 엔터 키로 검색
-        searchInput.addEventListener('keydown', function(e) {
+        localSearchInput.addEventListener('keydown', function(e) {
             if (e.key === 'Enter') {
                 e.preventDefault();
                 performInstantSearch();
@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    if (searchClear) {
-        searchClear.addEventListener('click', clearSearchInput);
+    if (localSearchClear) {
+        localSearchClear.addEventListener('click', clearSearchInput);
     }
 
     console.log('🔍 검색 기능 초기화 완료');
@@ -61,7 +61,7 @@ function debounceSearch(e) {
 // 즉시 검색 수행
 function performInstantSearch(query) {
     if (typeof query === 'undefined') {
-        query = searchInput ? searchInput.value : '';
+        query = localSearchInput ? localSearchInput.value : '';
     }
 
     query = query.toLowerCase().trim();
@@ -84,9 +84,9 @@ function performInstantSearch(query) {
 
 // 검색어 초기화
 function clearSearchInput() {
-    if (searchInput) {
-        searchInput.value = '';
-        searchInput.focus();
+    if (localSearchInput) {
+        localSearchInput.value = '';
+        localSearchInput.focus();
     }
 
     updateClearButton('');
@@ -99,8 +99,8 @@ function clearSearchInput() {
 
 // 검색어 초기화 버튼 상태 업데이트
 function updateClearButton(query) {
-    if (searchClear) {
-        searchClear.style.display = query ? 'block' : 'none';
+    if (localSearchClear) {
+        localSearchClear.style.display = query ? 'block' : 'none';
     }
 }
 
