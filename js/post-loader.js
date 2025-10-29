@@ -205,17 +205,30 @@ function highlightCodeBlocks() {
 function loadGiscus(filename) {
   if (!commentsSection) return;
 
+  // 기존 giscus 스크립트 제거 (중복 방지)
+  const existingScript = document.querySelector(
+    'script[src="https://giscus.app/client.js"]'
+  );
+  if (existingScript) {
+    existingScript.remove();
+  }
+
+  // 게시글 제목 가져오기 (이미 로드된 게시글에서)
+  const postTitle = document.querySelector(".post-title");
+  const titleText = postTitle ? postTitle.textContent.trim() : filename;
+
   // Giscus 스크립트 생성
   const script = document.createElement("script");
   script.src = "https://giscus.app/client.js";
   script.async = true;
 
   // Giscus 설정
-  script.setAttribute("data-repo", "seungwonme/seungwonme.github.io");
+  script.setAttribute("data-repo", "jhkoo0314/jhkoo0314.github.io");
   script.setAttribute("data-repo-id", "R_kgDOQKjKYA"); // 실제 repo-id
   script.setAttribute("data-category", "General");
   script.setAttribute("data-category-id", "DIC_kwDOQKjKYM4CxKN2"); // 실제 category-id
-  script.setAttribute("data-mapping", "pathname");
+  script.setAttribute("data-mapping", "title"); // 제목 기반 매핑
+  script.setAttribute("data-term", titleText); // 게시글 제목을 식별자로 사용
   script.setAttribute("data-strict", "0");
   script.setAttribute("data-reactions-enabled", "1");
   script.setAttribute("data-emit-metadata", "1");
@@ -227,10 +240,11 @@ function loadGiscus(filename) {
   // 댓글 섹션에 스크립트 추가
   const giscusContainer = document.getElementById("giscus-comments");
   if (giscusContainer) {
+    giscusContainer.innerHTML = ""; // 기존 내용 제거
     giscusContainer.appendChild(script);
     commentsSection.style.display = "block";
 
-    console.log("💬 Giscus 댓글 로드 완료");
+    console.log(`💬 Giscus 댓글 로드 완료: ${titleText}`);
   } else {
     console.warn("⚠️ Giscus 컨테이너를 찾을 수 없습니다.");
   }

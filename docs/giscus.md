@@ -4,7 +4,7 @@ Giscus는 GitHub Discussions를 기반으로 한 댓글 시스템입니다.
 
 ## 1단계: GitHub Discussions 활성화
 
-1. GitHub 저장소 (`seungwonme.github.io`)로 이동
+1. GitHub 저장소 (`jhkoo0314.github.io`)로 이동
 2. **Settings** 탭 클릭
 3. **Features** 섹션에서 **Discussions** 체크박스 활성화
 
@@ -14,14 +14,15 @@ Giscus는 GitHub Discussions를 기반으로 한 댓글 시스템입니다.
 2. **Install** 버튼 클릭
 3. 설치할 저장소 선택:
    - **Only select repositories** 선택
-   - `seungwonme.github.io` 저장소 선택
+   - `jhkoo0314.github.io` 저장소 선택
 4. **Install** 클릭
 
 ## 3단계: Giscus 설정 정보 가져오기
 
 1. [https://giscus.app/ko](https://giscus.app/ko) 접속
-2. **저장소** 섹션에서 `seungwonme/seungwonme.github.io` 입력
+2. **저장소** 섹션에서 `jhkoo0314/jhkoo0314.github.io` 입력
 3. 설정 옵션:
+
    - **페이지 ↔️ Discussions 매핑**: `pathname` 선택 (권장)
    - **Discussion 카테고리**: `General` 또는 `Announcements` 선택
    - **기능**:
@@ -37,10 +38,10 @@ Giscus는 GitHub Discussions를 기반으로 한 댓글 시스템입니다.
 1. `js/post-loader.js` 파일 열기
 2. `loadGiscus()` 함수에서 다음 값 업데이트:
    ```javascript
-   script.setAttribute('data-repo', 'seungwonme/seungwonme.github.io');
-   script.setAttribute('data-repo-id', 'YOUR_REPO_ID'); // 3단계에서 복사한 값으로 변경
-   script.setAttribute('data-category', 'General'); // 선택한 카테고리 이름
-   script.setAttribute('data-category-id', 'YOUR_CATEGORY_ID'); // 3단계에서 복사한 값으로 변경
+   script.setAttribute("data-repo", "jhkoo0314/jhkoo0314.github.io");
+   script.setAttribute("data-repo-id", "YOUR_REPO_ID"); // 3단계에서 복사한 값으로 변경
+   script.setAttribute("data-category", "General"); // 선택한 카테고리 이름
+   script.setAttribute("data-category-id", "YOUR_CATEGORY_ID"); // 3단계에서 복사한 값으로 변경
    ```
 
 ## 5단계: 저장소 push
